@@ -23,10 +23,21 @@ return array(
             'blog' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/blog',
+                    'route'    => '/adverts',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Blog',
-                        'action'     => 'posts',
+                        'controller' => 'Application\Controller\Adverts',
+                        'action'     => 'adverts',
+                    ),
+                ),
+            ),
+             'advert' => array(
+                'type' => 'Segment',
+                'options' => array(
+                    'route'    => '/adverts/advert[/:advert_id]',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Adverts',
+                        'action'     => 'advert',
+                        'advert_id'     => '1',
                     ),
                 ),
             ),
@@ -60,6 +71,8 @@ return array(
                     ),
                 ),
             ),
+            
+         
         ),
     ),
     'service_manager' => array(
@@ -84,7 +97,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Blog' => 'Application\Controller\BlogController'
+            'Application\Controller\Adverts' => 'Application\Controller\AdvertsController',
+            'Application\Controller\Advert' => 'Application\Controller\AdvertController'
         ),
     ),
     'view_manager' => array(
@@ -96,7 +110,7 @@ return array(
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
-            'application/blog/posts' => __DIR__ . '/../view/application/blog/posts.phtml',
+            'application/adverts/adverts' => __DIR__ . '/../view/application/adverts/adverts.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
