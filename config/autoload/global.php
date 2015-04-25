@@ -12,5 +12,19 @@
  */
 
 return array(
-    // ...
+    'db' => array(
+         'driver'         => 'Pdo',
+         'dsn'            => 'mysql:dbname=agency;host=localhost', // DB username and pass in local.php file
+         'username' => 'root',
+         'password' => 'sparco1012',
+         'driver_options' => array(
+             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+         ),
+     ),
+     'service_manager' => array(
+         'factories' => array(
+             'Zend\Db\Adapter\Adapter'
+                     => 'Zend\Db\Adapter\AdapterServiceFactory',
+         ),
+     ),
 );

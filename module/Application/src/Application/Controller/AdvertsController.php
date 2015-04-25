@@ -14,13 +14,25 @@ use Zend\View\Model\ViewModel;
 
 class AdvertsController extends AbstractActionController
 {
-    public function AdvertsAction()
-    {
-        return new ViewModel();
-    }
-    public function AdvertAction()
-        {
+protected $advertTable;
+public function AdvertsAction()
+            {
+                return new ViewModel(array(
+                        'adverts' => $this->get_adverts_table()->get_all(),
+                    ));
+            }
+        public function AdvertAction()
+            {
                 $advert_id = $this->getEvent()->getRouteMatch()->getParam("advert_id");
                 return new ViewModel(array('advert_id' => $advert_id));
-        }
+            }
+        
+        public function get_adverts_table()
+            {
+                if (!$this->advertTable) {
+                    $sm = $this->getServiceLocator();
+                    $this->advertTable = $sm->get('Application\Model\AdvertTable');
+                }
+                return $this->advertTable;
+            }
 }

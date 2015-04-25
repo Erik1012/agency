@@ -11,6 +11,10 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Application\Model\Advert;
+use Application\Model\AdvertTable;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
 
 class Module
 {
@@ -36,4 +40,25 @@ class Module
             ),
         );
     }
+    
+    public function getServiceConfig()
+     {
+         return array(
+             'factories' => array(
+                 'Application\Model\AdvertTable' =>  function($sm) {
+                     $tableGateway = $sm->get('AdvertTableGateway');
+                     $table = new AdvertTable($tableGateway);
+                     return $table;
+                 },
+                 'AdvertTableGateway' => function ($sm) {
+                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                     $resultSetPrototype = new ResultSet();
+                     $resultSetPrototype->setArrayObjectPrototype(new Advert());
+                     return new TableGateway('adverts', $dbAdapter, null, $resultSetPrototype);
+                 },
+             ),
+         );
+     }
+    
+    
 }
