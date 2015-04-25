@@ -97,8 +97,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
-            'Application\Controller\Adverts' => 'Application\Controller\AdvertsController',
-            'Application\Controller\Advert' => 'Application\Controller\AdvertController'
+            'Application\Controller\Adverts' => 'Application\Controller\AdvertsController'
         ),
     ),
     'view_manager' => array(

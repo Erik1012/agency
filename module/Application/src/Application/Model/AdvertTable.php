@@ -41,6 +41,9 @@ namespace Application\Model;
              'address' => $advert->address,
              'title'  => $advert->title,
              'description'  => $advert->description,
+				 'phone'  => $advert->phone,
+				 'phone'  => date("Y-m-d"),
+				 'pictures'  => $advert->pictures,
          );
 
          $id = (int) $advert->id;

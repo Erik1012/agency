@@ -891,3 +891,10 @@ footer {
     line-height: 24px;
     font-style: italic;
 }
+.advert_images
+	{
+		left: 8%;
+		margin-top: 43.5em;
+		position: relative;
+		width: 84em;
+	}

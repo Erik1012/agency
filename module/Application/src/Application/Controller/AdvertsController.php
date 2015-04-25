@@ -24,7 +24,9 @@ public function AdvertsAction()
         public function AdvertAction()
             {
                 $advert_id = $this->getEvent()->getRouteMatch()->getParam("advert_id");
-                return new ViewModel(array('advert_id' => $advert_id));
+					 $advert = $this->get_adverts_table()->get_advert($advert_id);
+					 $images = explode(",", $advert->pictures);
+                return new ViewModel(array('advert' => $advert, 'images' => $images));
             }
         
         public function get_adverts_table()

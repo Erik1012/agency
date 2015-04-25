@@ -12,13 +12,19 @@ class Advert
      public $title;
      public $address;
      public $description;
+	  public $phone;
+	  public $date;
+	  public $pictures;
 
      public function exchangeArray($data)
      {
          $this->id     = (!empty($data['id'])) ? $data['id'] : null;
          $this->title  = (!empty($data['title'])) ? $data['title'] : null;
          $this->address = (!empty($data['address'])) ? $data['address'] : null;
-         $this->description = (!empty($data['description'])) ? $data['description'] : null;
+			$this->description = (!empty($data['description'])) ? $data['description'] : null;
+			$this->phone = (!empty($data['phone'])) ? $data['phone'] : null;
+			$this->date = (!empty($data['date'])) ? $data['date'] : null;
+			$this->pictures = (!empty($data['pictures'])) ? $data['pictures'] : null;
      }
  }
 ?>

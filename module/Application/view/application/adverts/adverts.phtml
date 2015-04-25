@@ -24,10 +24,13 @@
 	            </div>
 	            <div class="row">
 	            	<div class="col-sm-12 portfolio-masonry">
-                            <?php foreach ($adverts as $advert) :?>
+                     <?php foreach ($adverts as $advert) :?>
+							<?php 
+								$images = explode(",", $advert->pictures);
+							?>
 		                <div class="portfolio-box web-design">
 		                	<div class="portfolio-box-container">
-			                	<img src="img/portfolio/work1.jpg" alt="" data-at2x="img/portfolio/work1.jpg">
+			                	<img src="<?= $images[0]; ?>" alt="" data-at2x="<?= $images[0]; ?>">
                                                 <a href="/adverts/advert/<?= $this->escapeHtml($advert->id);?>">
                                                     <div class="portfolio-box-text">
 			                		<h3><?= $this->escapeHtml($advert->title);?></h3>
@@ -36,7 +39,7 @@
                                                 </a>
 			                </div>
 		                </div>
-                            <?php endforeach; ?>
+                     <?php endforeach; ?>
 	                </div>
 	            </div>
 	        </div>

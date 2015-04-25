@@ -1,1 +1,43 @@
-<h1>advert id = <?php echo $advert_id;?></h1>
+<!-- Page Title -->
+        <div class="page-title-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 wow fadeIn">
+                        <!--<i class="fa fa-envelope"></i>-->
+                        <h1><?= $advert->title; ?></h1>
+								<p><?= $advert->date; ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Us -->
+        <div class="contact-us-container">
+        	<div class="container">
+	            <div class="row">
+	                <div class="col-sm-7 contact-form wow fadeInLeft">
+	                    <p>
+	                    	<?= $advert->description; ?>
+	                    </p>
+	                </div>
+						
+	                <div class="col-sm-5 contact-address wow fadeInUp">
+	                    <h3>Location</h3>
+	                    <div class="map"></div>
+	                    <h3>Address</h3>
+	                    <p><?= $advert->address; ?></p>
+	                    <p>Phone: <?= $advert->phone; ?></p>
+	                </div>
+						
+						<div class="flexslider advert_images">
+                            <ul class="slides">
+										<?php foreach ($images as $image) :?>
+                                 <li data-thumb="<?= $image;?>">
+                                    <img src="<?= $image;?>">
+                                 </li>
+										<?php endforeach; ?>
+                            </ul>
+                        </div>
+	            </div>
+	        </div>
+        </div>
