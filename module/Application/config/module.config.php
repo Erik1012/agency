@@ -30,6 +30,16 @@ return array(
                     ),
                 ),
             ),
+				'about' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/about',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Info',
+                        'action'     => 'about',
+                    ),
+                ),
+            ),
             'adverts' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -110,6 +120,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
+				'Application\Controller\Info' => 'Application\Controller\InfoController',
             'Application\Controller\Adverts' => 'Application\Controller\AdvertsController'
         ),
     ),
@@ -123,6 +134,7 @@ return array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'application/adverts/adverts' => __DIR__ . '/../view/application/adverts/adverts.phtml',
+				'application/info/about' => __DIR__ . '/../view/application/info/about.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),

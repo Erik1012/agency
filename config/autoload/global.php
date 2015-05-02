@@ -43,6 +43,10 @@ return array(
                      ),
                  ), */
              ),
+				 array(
+                 'label' => 'About us',
+                 'route' => 'about',
+             ),
          ),
      ),
 );
