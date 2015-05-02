@@ -55,29 +55,17 @@
 		<a class="navbar-brand" href="/">Agency - a super cool design agency...</a>
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="collapse navbar-collapse">
+									
+							  </div>
                         <div class="collapse navbar-collapse" id="top-navbar-1">
-                        <ul class="nav navbar-nav navbar-right">
-                                <li class="active">
-                                        <a href="/" >
-                                                <i class="fa fa-home"></i><br>Home
-                                        </a>               
-                                </li>
-                                <li>
-                                        <a href="/adverts"><i class="fa fa-camera"></i><br>Catalog</a>
-                                </li>
-                                <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000"><i class="fa fa-comments"></i><br>Blog<span class="caret"></span></a>
-                                </li>
-                                <li>
-                                        <a href="services.html"><i class="fa fa-tasks"></i><br>Services</a>
-                                </li>
-                                <li>
-                                        <a href="about.html"><i class="fa fa-user"></i><br>About</a>
-                                </li>
-                                <li>
-                                        <a href="contact.html"><i class="fa fa-envelope"></i><br>Contact</a>
-                                </li>
-                        </ul>
+								<?php // <-- Update this !!
+									echo $this->navigation('navigation')
+												 ->menu()
+												 ->setMinDepth(0)
+												 ->setMaxDepth(0)
+												 ->setUlClass('nav navbar-nav navbar-right');
+									?>	
                         </div>
                 </div>
         </nav>

@@ -13,6 +13,16 @@ return array(
             'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
+                    'route'    => '/home',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Index',
+                        'action'     => 'index',
+                    ),
+                ),
+            ),
+				'home2' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
                     'route'    => '/',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
@@ -20,7 +30,7 @@ return array(
                     ),
                 ),
             ),
-            'blog' => array(
+            'adverts' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/adverts',
@@ -83,6 +93,9 @@ return array(
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),
+		  'factories' => array(
+				'Navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+			),
     ),
     'translator' => array(
         'locale' => 'en_US',

@@ -27,4 +27,22 @@ return array(
                      => 'Zend\Db\Adapter\AdapterServiceFactory',
          ),
      ),
+	'navigation' => array(
+         'default' => array(
+             array(
+                 'label' => 'Home',
+                 'route' => 'home',
+             ),
+             array(
+                 'label' => 'Catalog',
+                 'route' => 'adverts',
+                 /*'pages' => array( //submenu
+                     array(
+                         'label' => 'Catalog',
+                         'route' => 'adverts',
+                     ),
+                 ), */
+             ),
+         ),
+     ),
 );
