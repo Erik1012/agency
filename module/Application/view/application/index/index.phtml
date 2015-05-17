@@ -1,3 +1,17 @@
+<?php
+	if(!empty($user))
+		{
+			?>
+				<span class="username">Welcome, <a href="/user"><?=$user;?></a></span>
+			<?php
+		}
+	else
+		{
+			?>
+				<span class="username"><a href="/user">Sign in</a></span>
+			<?php
+		}
+?>
 <!-- Slider -->
         <div class="slider-container">
             <div class="container">

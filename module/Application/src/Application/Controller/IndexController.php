@@ -15,7 +15,13 @@ use Zend\View\Model\ViewModel;
 class IndexController extends AbstractActionController
 {
     public function indexAction()
-    {
-        return new ViewModel();
-    }
+		{
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			return new ViewModel(array('user' => $display_name));
+		}
 }

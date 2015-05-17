@@ -16,6 +16,12 @@ class InfoController extends AbstractActionController
 {
     public function aboutAction()
     {
-        return new ViewModel();
+        if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			return new ViewModel(array('user' => $display_name));
     }
 }
