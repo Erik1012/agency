@@ -5,6 +5,7 @@ return array(
         'Application',
 		  'ZfcBase',
         'ZfcUser',
+		  'blog',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
