@@ -11,13 +11,21 @@ class Post implements InputFilterAwareInterface
 {
     public $id;
     public $title;
-    public $body;
+    public $address;
+	 public $description;
+	 public $phone;
+	 public $date;
+	 public $pictures;
 
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id'])) ? $data['id'] : null;
         $this->title  = (isset($data['title'])) ? $data['title'] : null;
-        $this->body = (isset($data['body'])) ? $data['body'] : null;
+        $this->address = (isset($data['address'])) ? $data['address'] : null;
+		  $this->description = (isset($data['description'])) ? $data['description'] : null;
+		  $this->phone = (isset($data['phone'])) ? $data['phone'] : null;
+		  $this->date = (isset($data['date'])) ? $data['date'] : null;
+		  $this->pictures = (isset($data['pictures'])) ? $data['pictures'] : null;
     }
 
     public function setInputFilter(InputFilterInterface $inputFilter)
@@ -59,8 +67,62 @@ class Post implements InputFilterAwareInterface
             )));
 
             $inputFilter->add($factory->createInput(array(
-                'name'     => 'body',
+                'name'     => 'address',
                 'required' => true,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 100,
+                        ),
+                    ),
+                ),
+            )));
+				$inputFilter->add($factory->createInput(array(
+                'name'     => 'description',
+                'required' => false,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 100,
+                        ),
+                    ),
+                ),
+            )));
+				$inputFilter->add($factory->createInput(array(
+                'name'     => 'phone',
+                'required' => false,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 100,
+                        ),
+                    ),
+                ),
+            )));
+				$inputFilter->add($factory->createInput(array(
+                'name'     => 'pictures',
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),

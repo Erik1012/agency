@@ -47,6 +47,10 @@ return array(
                  'label' => 'About us',
                  'route' => 'about',
              ),
+				 array(
+                 'label' => 'My adverts',
+                 'route' => 'blog',
+             ),
          ),
      ),
 );

@@ -11,6 +11,7 @@ class PostForm extends Form
         // we want to ignore the name passed
         parent::__construct('post');
         $this->setAttribute('method', 'post');
+		  $this->setAttribute('enctype','multipart/form-data');
         $this->add(array(
             'name' => 'id',
             'attributes' => array(
@@ -27,12 +28,39 @@ class PostForm extends Form
             ),
         ));
         $this->add(array(
-            'name' => 'body',
+            'name' => 'address',
             'attributes' => array(
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Body',
+                'label' => 'Address',
+            ),
+        ));
+		  $this->add(array(
+            'name' => 'description',
+            'attributes' => array(
+                'type'  => 'text',
+            ),
+            'options' => array(
+                'label' => 'Description',
+            ),
+        ));
+		  $this->add(array(
+            'name' => 'phone',
+            'attributes' => array(
+                'type'  => 'text',
+            ),
+            'options' => array(
+                'label' => 'Phone',
+            ),
+        ));
+		   $this->add(array(
+            'name' => 'pictures',
+            'attributes' => array(
+                'type'  => 'text',
+            ),
+            'options' => array(
+                'label' => 'Pictures',
             ),
         ));
         $this->add(array(

@@ -8,7 +8,7 @@ use Zend\Db\TableGateway\AbstractTableGateway;
 
 class PostTable extends AbstractTableGateway
 {
-	protected $table = 'posts';
+	protected $table = 'adverts';
 	
     public function __construct(Adapter $adapter)
     {
@@ -39,7 +39,11 @@ class PostTable extends AbstractTableGateway
     {
         $data = array(
             'title' => $post->title,
-            'body'  => $post->body,
+            'address'  => $post->address,
+				'description'  => $post->description,
+				'phone'  => $post->phone,
+				'date'  => date("Y-m-d"),
+				'pictures'  => $post->pictures,
         );
         $id = (int)$post->id;
         if ($id == 0) {
