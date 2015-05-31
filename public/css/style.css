@@ -898,3 +898,16 @@ footer {
 		position: relative;
 		width: 84em;
 	}
+.user_page
+	{
+		margin: 0 auto;
+		width: 30%;
+	}
+.user_avatar
+	{
+		float:left; 
+		padding-right:16px;
+	}
+th {
+    text-align: center !important;
+}

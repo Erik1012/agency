@@ -16,6 +16,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
 		{
+			$display_name = "";
 			if ($this->zfcUserAuthentication()->hasIdentity()) 
 				{
 					//echo 'loged in';

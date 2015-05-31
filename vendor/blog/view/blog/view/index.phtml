@@ -1,33 +1,49 @@
 <!--<strong>Module:</strong>        Blog &raquo;
 <strong>Controller:</strong>    View &raquo;
 <strong>Action:</strong>        index-->
-<div class="about-us-container">
-   <div class="container">
-	   <div class="row">
-			<?php
-			$title = 'My adverts';
-			$this->headTitle($title);
+<?php
+	if(!empty($user))
+		{
 			?>
-			<h1><?php echo $this->escapeHtml($title); ?></h1>
+				<span class="username">Welcome, <a href="/user"><?=$user;?></a></span>
+				<div class="about-us-container">
+					<div class="container">
+						<div class="row">
+							<?php
+							$title = 'My adverts';
+							$this->headTitle($title);
+							?>
+							<h1><?php echo $this->escapeHtml($title); ?></h1>
 
-			<p><a href="/blog/post/add">Add new advert</a></p>
+							<p><a href="/blog/post/add">Add new advert</a></p>
 
-			<table class="table">
-			<tr>
-				 <th>Title</th>
-				 <th>Body</th>
-				 <th>&nbsp;</th>
-			</tr>
-			<?php foreach($posts as $post) : ?>
-			<tr>
-				 <td><?php echo $this->escapeHtml($post->title);?></td>
-				 <td><?php echo $this->escapeHtml($post->description);?></td>    <td>
-					  <a href="/blog/post/edit/<?php echo $post->id; ?>">Edit</a>
-					  <a href="/blog/post/delete/<?php echo $post->id; ?>">Delete</a>
-				 </td>
-			</tr>
-			<?php endforeach; ?>
-			</table>
-		</div>
-	</div>
-</div>
+							<table class="table">
+							<tr>
+								 <th>Title</th>
+								 <th>Body</th>
+								 <th>&nbsp;</th>
+							</tr>
+							<?php foreach($posts as $post) : ?>
+							<tr>
+								 <td><?php echo $this->escapeHtml($post->title);?></td>
+								 <td><?php echo $this->escapeHtml($post->description);?></td>    <td>
+									  <a href="/blog/post/edit/<?php echo $post->id; ?>">Edit</a>
+									  <a href="/blog/post/delete/<?php echo $post->id; ?>">Delete</a>
+								 </td>
+							</tr>
+							<?php endforeach; ?>
+							</table>
+						</div>
+					</div>
+				</div>
+			<?php
+		}
+	else
+		{
+			?>
+				<span>Вы должны авторизоваться!</span>
+				<span class="username"><a href="/user">Sign in</a></span>
+			<?php
+		}
+?>
+

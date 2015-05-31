@@ -21,9 +21,19 @@ class ViewController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel(array(
-            'posts' => $this->getPostTable()->fetchAll(),
-        ));
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			else
+				{
+					$display_name = "";
+				}
+			return new ViewModel(array(
+            'posts' => $this->getPostTable()->fetchAll(), "user" => $display_name,
+			));
     }
 
     public function fooAction()
