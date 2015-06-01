@@ -13,6 +13,8 @@ use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 use Application\Model\Advert;
 use Application\Model\AdvertTable;
+use Application\Model\Category;
+use Application\Model\CategoryTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 
@@ -55,6 +57,17 @@ class Module
                      $resultSetPrototype = new ResultSet();
                      $resultSetPrototype->setArrayObjectPrototype(new Advert());
                      return new TableGateway('adverts', $dbAdapter, null, $resultSetPrototype);
+                 },
+						'Application\Model\CategoryTable' =>  function($sm) {
+                     $tableGateway = $sm->get('CategoryTableGateway');
+                     $table = new CategoryTable($tableGateway);
+                     return $table;
+                 },
+                 'CategoryTableGateway' => function ($sm) {
+                     $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                     $resultSetPrototype = new ResultSet();
+                     $resultSetPrototype->setArrayObjectPrototype(new Category());
+                     return new TableGateway('categories', $dbAdapter, null, $resultSetPrototype);
                  },
              ),
          );

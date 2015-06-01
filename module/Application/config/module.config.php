@@ -41,12 +41,13 @@ return array(
                 ),
             ),
             'adverts' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'type' => 'Segment',
                 'options' => array(
-                    'route'    => '/adverts',
+                    'route'    => '/adverts[/:category_id]',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Adverts',
                         'action'     => 'adverts',
+								'category_id'     => '0',
                     ),
                 ),
             ),

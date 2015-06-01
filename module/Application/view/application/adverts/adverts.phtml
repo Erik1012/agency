@@ -30,10 +30,15 @@
 	        <div class="container">
 	            <div class="row">
 	            	<div class="col-sm-12 portfolio-filters wow fadeInLeft">
-	            		<a href="#" class="filter-all active">All</a> / 
-	            		<a href="#" class="filter-web-design">Web Design</a> / 
-	            		<a href="#" class="filter-logo-design">Logo Design</a> / 
-	            		<a href="#" class="filter-print-design">Print Design</a>
+	            		<a href="#" class="filter-all active">Всі</a> / 
+							<?php
+							foreach($categories as $category)
+								{
+									?>
+									<a href="#" class="filter-<?=$category->id;?>"><?=$category->name;?></a> / 
+									<?php
+								}
+							?>
 	            	</div>
 	            </div>
 	            <div class="row">
@@ -42,7 +47,7 @@
 							<?php 
 								$images = explode(",", $advert->pictures);
 							?>
-		                <div class="portfolio-box web-design">
+		                <div class="portfolio-box <?=$advert->category_id;?>">
 		                	<div class="portfolio-box-container">
 			                	<img src="<?= $images[0]; ?>" alt="" data-at2x="<?= $images[0]; ?>">
                                                 <a href="/adverts/advert/<?= $this->escapeHtml($advert->id);?>">

@@ -15,6 +15,7 @@ class Advert
 	  public $phone;
 	  public $date;
 	  public $pictures;
+	  public $category_id;
 
      public function exchangeArray($data)
      {
@@ -25,6 +26,7 @@ class Advert
 			$this->phone = (!empty($data['phone'])) ? $data['phone'] : null;
 			$this->date = (!empty($data['date'])) ? $data['date'] : null;
 			$this->pictures = (!empty($data['pictures'])) ? $data['pictures'] : null;
+			$this->category_id = (!empty($data['category_id'])) ? $data['category_id'] : null;
      }
  }
 ?>
