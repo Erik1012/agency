@@ -1,6 +1,6 @@
 <?php
 
-$title = 'Edit post';
+$title = 'Редагування оголошення';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
@@ -12,10 +12,30 @@ $form->prepare();
 
 echo $this->form()->openTag($form);
 echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('title'));
-echo $this->formRow($form->get('address'));
-echo $this->formRow($form->get('description'));
-echo $this->formRow($form->get('phone'));
-echo $this->formRow($form->get('pictures'));
-echo $this->formSubmit($form->get('submit'));
+echo $this->formHidden($form->get('user_id'));
+
+
+	echo '<table class="table">';
+
+	echo '<tr><td>'.$this->formLabel($form->get('title')).'</td>';
+	echo '<td>'.$this->formElement($form->get('title')).'</td></tr>';
+
+	echo '<tr><td>'.$this->formLabel($form->get('address')).'</td>';
+	echo '<td>'.$this->formElement($form->get('address')).'</td></tr>';
+
+	echo '<tr><td>'.$this->formLabel($form->get('description')).'</td>';
+	echo '<td>'.$this->formElement($form->get('description')).'</td></tr>';
+
+	echo '<tr><td>'.$this->formLabel($form->get('phone')).'</td>';
+	echo '<td>'.$this->formElement($form->get('phone')).'</td></tr>';
+
+	echo '<tr><td>'.$this->formLabel($form->get('pictures')).'</td>';
+	echo '<td>'.$this->formElement($form->get('pictures')).'</td></tr>';
+
+	echo '<tr><td>'.$this->formLabel($form->get('category_id')).'</td>';
+	echo '<td>'.$this->formElement($form->get('category_id')).'</td></tr>';
+	
+	echo '</table>';
+	echo '<div class="advert_form_submit">'.$this->formSubmit($form->get('submit')).'</div>';
+
 echo $this->form()->closeTag();

@@ -30,11 +30,11 @@ return array(
 	'navigation' => array(
          'default' => array(
              array(
-                 'label' => 'Home',
+                 'label' => 'Головна',
                  'route' => 'home',
              ),
              array(
-                 'label' => 'Catalog',
+                 'label' => 'Каталог',
                  'route' => 'adverts',
                  /*'pages' => array( //submenu
                      array(
@@ -44,11 +44,11 @@ return array(
                  ), */
              ),
 				 array(
-                 'label' => 'About us',
+                 'label' => 'Про нас',
                  'route' => 'about',
              ),
 				 array(
-                 'label' => 'My adverts',
+                 'label' => 'Мої оголошення',
                  'route' => 'blog',
              ),
          ),

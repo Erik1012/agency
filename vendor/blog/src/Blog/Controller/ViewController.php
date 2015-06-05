@@ -25,14 +25,16 @@ class ViewController extends AbstractActionController
 				{
 					//echo 'loged in';
 					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					$user_id = $this->zfcUserAuthentication()->getIdentity()->getId();
 					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
 				}
 			else
 				{
 					$display_name = "";
+					$user_id = 0;
 				}
 			return new ViewModel(array(
-            'posts' => $this->getPostTable()->fetchAll(), "user" => $display_name,
+            'posts' => $this->getPostTable()->get_post_by_user($user_id), "user" => $display_name,
 			));
     }
 

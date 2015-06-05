@@ -162,8 +162,8 @@ ul.navbar-nav li.active .dropdown-menu > .active > a:focus { background: #9d426b
 .navbar-brand {
 	width: 167px;
 	height: 106px;
-	background: url(../img/logo.png) left center no-repeat;
-	text-indent: -99999px;
+	/*background: url(../img/logo.png) left center no-repeat;
+	text-indent: -99999px;*/
 }
 
 /***** Slider *****/
@@ -295,7 +295,8 @@ ul.navbar-nav li.active .dropdown-menu > .active > a:focus { background: #9d426b
 }
 
 .service {
-	margin-top: 40px;
+	 margin-top: 40px;
+	 height: 28em; /*by ERIK*/
     padding: 15px 15px 20px 15px;
     background: #f8f8f8;
     border-bottom: 2px solid #9d426b;
@@ -908,6 +909,52 @@ footer {
 		float:left; 
 		padding-right:16px;
 	}
-th {
-    text-align: center !important;
-}
+th 
+	{
+		text-align: center !important;
+	}
+.username
+	{
+		float: right;
+		position: relative;
+		right: 10.5em;
+		top: -13em;
+	}
+.advert_form
+	{
+		margin: 0 auto;
+		width: 50%;
+	}
+.advert_form_submit
+	{
+		margin: 0 auto 5%;
+	}
+.great_font
+	{
+		font-family: 'Lobster',cursive;
+		font-size: 3em;
+		font-weight: bold;
+		margin-top: 8em;
+		position: relative;
+		top: 1em;
+	}
+@media screen and (max-width: 700px) {
+	.username
+		{
+			float: none !important;
+			position: relative !important;
+			right: 0 !important;
+			top: 0 !important;
+		}
+	.great_font
+	{
+		font-family: 'Lobster',cursive;
+		font-size: 2em;
+		font-weight: bold;
+		margin-top: 8em;
+		position: relative;
+		top: 1em;
+		left: 1em;
+	}
+}	
+	

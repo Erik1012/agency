@@ -3,6 +3,7 @@
 namespace Blog\Form;
 
 use Zend\Form\Form;
+use Zend\Form\Element; 
 
 class PostForm extends Form
 {
@@ -18,13 +19,19 @@ class PostForm extends Form
                 'type'  => 'hidden',
             ),
         ));
+		   $this->add(array(
+            'name' => 'user_id',
+            'attributes' => array(
+                'type'  => 'hidden',
+            ),
+        ));
         $this->add(array(
             'name' => 'title',
             'attributes' => array(
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Title',
+                'label' => 'Заголовок',
             ),
         ));
         $this->add(array(
@@ -33,25 +40,26 @@ class PostForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Address',
+                'label' => 'Адреса',
             ),
         ));
-		  $this->add(array(
-            'name' => 'description',
-            'attributes' => array(
-                'type'  => 'text',
-            ),
+		  $this->add(array( 
+            'name' => 'description', 
+            'type' => 'Zend\Form\Element\Textarea', 
+            'attributes' => array( 
+                'required' => 'required', 
+            ), 
             'options' => array(
-                'label' => 'Description',
-            ),
-        ));
+					 'label' => 'Опис',
+            ), 
+        )); 
 		  $this->add(array(
             'name' => 'phone',
             'attributes' => array(
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Phone',
+                'label' => 'Тел.',
             ),
         ));
 		   $this->add(array(
@@ -60,7 +68,30 @@ class PostForm extends Form
                 'type'  => 'text',
             ),
             'options' => array(
-                'label' => 'Pictures',
+                'label' => 'Картинки',
+            ),
+        ));
+			$this->add(array( 
+            'name' => 'category_id', 
+            'type' => 'Zend\Form\Element\Select', 
+            'attributes' => array( 
+                'required' => 'required', 
+            ), 
+            'options' => array( 
+                'label' => 'Виберіть категорію:', 
+                'value_options' => array(
+                    '0' => 'Dropdown', 
+                    '1' => 'Dropdown', 
+                ),
+            ), 
+        )); 
+			$this->add(array(
+            'name' => 'coordinates',
+            'attributes' => array(
+                'type'  => 'text',
+            ),
+            'options' => array(
+                'label' => 'Координати',
             ),
         ));
         $this->add(array(

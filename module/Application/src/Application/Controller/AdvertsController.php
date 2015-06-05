@@ -26,10 +26,6 @@ class AdvertsController extends AbstractActionController
 					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
 				}
 			$category_id = $this->getEvent()->getRouteMatch()->getParam("category_id");
-			if(!empty($category_id))
-				{
-					
-				}
 			$categories = $this->get_category_table()->get_all();
 			return new ViewModel(array('adverts' => $this->get_adverts_table()->get_all(), 'user' => $display_name, "categories" => $categories));
       }

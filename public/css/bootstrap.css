@@ -6613,6 +6613,7 @@ td.visible-xs {
   td.visible-xs {
     display: table-cell !important;
   }
+  
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

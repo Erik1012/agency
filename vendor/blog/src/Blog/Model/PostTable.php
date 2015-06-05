@@ -23,7 +23,13 @@ class PostTable extends AbstractTableGateway
         $resultSet = $this->select();
         return $resultSet;
     }
-
+	 
+	 public function get_post_by_user($id)
+    {
+        $resultSet = $this->select(array('user_id' => $id));
+        return $resultSet;
+    } 
+	 
     public function getPost($id)
     {
         $id  = (int) $id;
@@ -44,6 +50,9 @@ class PostTable extends AbstractTableGateway
 				'phone'  => $post->phone,
 				'date'  => date("Y-m-d"),
 				'pictures'  => $post->pictures,
+				'category_id'  => $post->category_id,
+				'coordinates'  => $post->coordinates,
+				'user_id'  => $post->user_id,
         );
         $id = (int)$post->id;
         if ($id == 0) {

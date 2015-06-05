@@ -2,13 +2,13 @@
 	if(!empty($user))
 		{
 			?>
-				<span class="username">Welcome, <a href="/user"><?=$user;?></a></span>
+				<span class="username">Ласкаво просимо, <a href="/user"><?=$user;?></a></span>
 			<?php
 		}
 	else
 		{
 			?>
-				<span class="username"><a href="/user">Sign in</a></span>
+				<span class="username"><a href="/user">Увійти в систему</a></span>
 			<?php
 		}
 ?>
@@ -37,7 +37,7 @@
 						
 	                <div class="col-sm-5 contact-address wow fadeInUp">
 	                    <h3>Location</h3>
-	                    <div class="map"></div>
+	                    <div id="map-canvas" style="height:300px; width:400px;"></div>
 	                    <h3>Address</h3>
 	                    <p><?= $advert->address; ?></p>
 	                    <p>Phone: <?= $advert->phone; ?></p>
@@ -55,3 +55,28 @@
 	            </div>
 	        </div>
         </div>
+<script>
+$( document ).ready(function() {
+	//initialize();
+});
+	function initialize() {
+		var myLatlng = new google.maps.LatLng(48.6179734,22.2783973);
+		var coord = new google.maps.LatLng(<?=$advert->coordinates;?>);
+		var mapOptions = {
+		  zoom: 12,
+		  center: myLatlng
+		}
+		var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+		var marker = new google.maps.Marker({
+			 position: coord,
+			 map: map,
+			 title: 'Hello World!'
+		});
+	}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+</script>
+			  

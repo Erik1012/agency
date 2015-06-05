@@ -16,6 +16,9 @@ class Post implements InputFilterAwareInterface
 	 public $phone;
 	 public $date;
 	 public $pictures;
+	 public $category_id;
+	 public $coordinates;
+	 public $user_id;
 
     public function exchangeArray($data)
     {
@@ -26,6 +29,9 @@ class Post implements InputFilterAwareInterface
 		  $this->phone = (isset($data['phone'])) ? $data['phone'] : null;
 		  $this->date = (isset($data['date'])) ? $data['date'] : null;
 		  $this->pictures = (isset($data['pictures'])) ? $data['pictures'] : null;
+		  $this->category_id = (!empty($data['category_id'])) ? $data['category_id'] : null;
+		  $this->coordinates = (isset($data['coordinates'])) ? $data['coordinates'] : null;
+		  $this->user_id = (isset($data['user_id'])) ? $data['user_id'] : null;
     }
 
     public function setInputFilter(InputFilterInterface $inputFilter)
@@ -41,6 +47,13 @@ class Post implements InputFilterAwareInterface
 
             $inputFilter->add($factory->createInput(array(
                 'name'     => 'id',
+                'required' => true,
+                'filters'  => array(
+                    array('name' => 'Int'),
+                ),
+            )));
+				$inputFilter->add($factory->createInput(array(
+                'name'     => 'user_id',
                 'required' => true,
                 'filters'  => array(
                     array('name' => 'Int'),
@@ -84,24 +97,16 @@ class Post implements InputFilterAwareInterface
                     ),
                 ),
             )));
-				$inputFilter->add($factory->createInput(array(
-                'name'     => 'description',
-                'required' => false,
-                'filters'  => array(
-                    array('name' => 'StripTags'),
-                    array('name' => 'StringTrim'),
-                ),
-                'validators' => array(
-                    array(
-                        'name'    => 'StringLength',
-                        'options' => array(
-                            'encoding' => 'UTF-8',
-                            'min'      => 1,
-                            'max'      => 100,
-                        ),
-                    ),
-                ),
-            )));
+				$inputFilter->add($factory->createInput([ 
+					'name' => 'description', 
+					'required' => true, 
+					'filters' => array( 
+						 array('name' => 'StripTags'), 
+						 array('name' => 'StringTrim'), 
+					), 
+					'validators' => array( 
+					), 
+			  ])); 
 				$inputFilter->add($factory->createInput(array(
                 'name'     => 'phone',
                 'required' => false,
@@ -123,6 +128,42 @@ class Post implements InputFilterAwareInterface
 				$inputFilter->add($factory->createInput(array(
                 'name'     => 'pictures',
                 'required' => false,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 100,
+                        ),
+                    ),
+                ),
+            )));
+				$inputFilter->add($factory->createInput([ 
+					'name' => 'category_id', 
+					'filters' => array( 
+						 array('name' => 'StripTags'), 
+						 array('name' => 'StringTrim'), 
+					), 
+					'validators' => array( 
+						 array ( 
+							  'name' => 'InArray', 
+							  'options' => array( 
+										 'haystack' => array(0,1) ,
+									), 
+							  ), 
+						 ), 
+
+					 
+			  ]));
+				
+				$inputFilter->add($factory->createInput(array(
+                'name'     => 'coordinates',
+                'required' => true,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),

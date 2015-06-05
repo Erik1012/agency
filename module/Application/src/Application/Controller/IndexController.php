@@ -14,6 +14,8 @@ use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
+	protected $advertTable;
+	protected $categoryTable;
     public function indexAction()
 		{
 			$display_name = "";
@@ -23,6 +25,24 @@ class IndexController extends AbstractActionController
 					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
 					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
 				}
-			return new ViewModel(array('user' => $display_name));
+			$res = $this->get_adverts_table()->get_all();
+			$i = 0;
+			foreach($res as $item)
+				{
+					$adverts[$i]['id'] = $item->id;
+					$adverts[$i]['title'] = $item->title;
+					$adverts[$i]['description'] = $item->description;
+					$adverts[$i]['pictures'] = $item->pictures;
+					$i++;
+				}
+			return new ViewModel(array('user' => $display_name, 'adverts' => $adverts, "count" => $i));
 		}
+	public function get_adverts_table()
+      {
+         if (!$this->advertTable) {
+            $sm = $this->getServiceLocator();
+            $this->advertTable = $sm->get('Application\Model\AdvertTable');
+         }
+         return $this->advertTable;
+      }
 }

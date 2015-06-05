@@ -11,6 +11,7 @@ class PostController extends AbstractActionController
 {
 
 	protected $postTable;
+	protected $categoryTable;
 
     public function getPostTable()
     {
@@ -28,9 +29,27 @@ class PostController extends AbstractActionController
 
     public function addAction()
     {
-        $form = new PostForm();
-        $form->get('submit')->setValue('Add');
-
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					$user_id = $this->zfcUserAuthentication()->getIdentity()->getId();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			else
+				{
+					$display_name = "";
+					$user_id = 0;
+				}
+			$categories = $this->get_category_table()->get_all();
+			$form = new PostForm();
+			$form->get('submit')->setValue('Додати');
+			$options;
+			foreach($categories as $category)
+				{
+					$options[$category->id] = $category->name;
+				}
+			$form->get('category_id')->setValueOptions($options);    
         $request = $this->getRequest();
         if ($request->isPost()) {
             $post = new Post();
@@ -45,22 +64,41 @@ class PostController extends AbstractActionController
                 return $this->redirect()->toRoute('blog');
             }
         }
-        return array('form' => $form);
+        return array('form' => $form, 'user_id' => $user_id);
     }
     
     public function editAction()
     {
-        $id = (int) $this->params()->fromRoute('id', 0);
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					$user_id = $this->zfcUserAuthentication()->getIdentity()->getId();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			else
+				{
+					$display_name = "";
+					$user_id = 0;
+				}
+			$categories = $this->get_category_table()->get_all();
+			$id = (int) $this->params()->fromRoute('id', 0);
         if (!$id) {
             return $this->redirect()->toRoute('blog', array(
                 'action' => 'add'
             ));
         }
         $post = $this->getPostTable()->getPost($id);
-
+		  $options;
+			foreach($categories as $category)
+				{
+					$options[$category->id] = $category->name;
+				}
+			
         $form  = new PostForm();
+		  $form->get('category_id')->setValueOptions($options);    
         $form->bind($post);
-        $form->get('submit')->setAttribute('value', 'Edit');
+        $form->get('submit')->setAttribute('value', 'Зберегти');
 
         $request = $this->getRequest();
         if ($request->isPost()) {
@@ -78,6 +116,7 @@ class PostController extends AbstractActionController
         return array(
             'id' => $id,
             'form' => $form,
+				'user_id' => $user_id
         );
     }
     
@@ -105,5 +144,13 @@ class PostController extends AbstractActionController
             'id'    => $id,
             'post' => $this->getPostTable()->getPost($id)
         );
-    }   
+    } 
+	public function get_category_table()
+            {
+                if (!$this->categoryTable) {
+                    $sm = $this->getServiceLocator();
+                    $this->categoryTable = $sm->get('Application\Model\CategoryTable');
+                }
+                return $this->categoryTable;
+            }
 }

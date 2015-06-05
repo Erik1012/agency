@@ -5,30 +5,33 @@
 	if(!empty($user))
 		{
 			?>
-				<span class="username">Welcome, <a href="/user"><?=$user;?></a></span>
+				<span class="username">Ласкаво просимо, <a href="/user"><?=$user;?></a></span>
 				<div class="about-us-container">
 					<div class="container">
 						<div class="row">
 							<?php
-							$title = 'My adverts';
+							$title = 'Мої оголошення';
 							$this->headTitle($title);
 							?>
 							<h1><?php echo $this->escapeHtml($title); ?></h1>
 
-							<p><a href="/blog/post/add">Add new advert</a></p>
+							<p><a href="/blog/post/add">Добавити оголошення</a></p>
 
 							<table class="table">
 							<tr>
-								 <th>Title</th>
-								 <th>Body</th>
+								 <th>Заголовок</th>
+								 <th>Опис</th>
+								 <th>Адреса</th>
 								 <th>&nbsp;</th>
 							</tr>
 							<?php foreach($posts as $post) : ?>
 							<tr>
 								 <td><?php echo $this->escapeHtml($post->title);?></td>
-								 <td><?php echo $this->escapeHtml($post->description);?></td>    <td>
-									  <a href="/blog/post/edit/<?php echo $post->id; ?>">Edit</a>
-									  <a href="/blog/post/delete/<?php echo $post->id; ?>">Delete</a>
+								 <td><?php echo $this->escapeHtml($post->description);?></td>    
+								 <td><?php echo $this->escapeHtml($post->address);?></td>    
+								 <td>
+									  <a href="/blog/post/edit/<?php echo $post->id; ?>">Редагувати</a>
+									  <a href="/blog/post/delete/<?php echo $post->id; ?>">Видалити</a>
 								 </td>
 							</tr>
 							<?php endforeach; ?>
@@ -41,9 +44,12 @@
 	else
 		{
 			?>
-				<span>Вы должны авторизоваться!</span>
-				<span class="username"><a href="/user">Sign in</a></span>
+				<h1>Ви повинні авторизуватися!</h1>
+				<br/>
+				<span><a href="/user">Увійти в систему</a></span>
+				<br/>
+				<br/>
+				<br/>
 			<?php
 		}
 ?>
-

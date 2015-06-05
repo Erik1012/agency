@@ -1,4 +1,3 @@
-
 jQuery(document).ready(function() {
 	
 	/*
@@ -59,15 +58,6 @@ jQuery(document).ready(function() {
         itemTemplate: '<a href="{{link}}" target="_blank" rel="nofollow"><img src="{{image_s}}" alt="{{title}}" /></a>'
     });
 	
-	/*
-	    Google maps
-	*/
-	var position = new google.maps.LatLng(45.067883, 7.687231);
-    $('.map').gmap({'center': position,'zoom': 15, 'disableDefaultUI':true, 'callback': function() {
-            var self = this;
-            self.addMarker({'position': this.get('map').getCenter() });	
-        }
-    });
     
     /*
 	    Subscription form
