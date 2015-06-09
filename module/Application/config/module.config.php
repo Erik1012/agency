@@ -62,6 +62,46 @@ return array(
                     ),
                 ),
             ),
+				'state1' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/state1',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Info',
+                        'action'     => 'state1',
+                    ),
+                ),
+            ),
+				'state2' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/state2',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Info',
+                        'action'     => 'state2',
+                    ),
+                ),
+            ),
+				'state3' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/state3',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Info',
+                        'action'     => 'state3',
+                    ),
+                ),
+            ),
+				'state4' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/state4',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Info',
+                        'action'     => 'state4',
+                    ),
+                ),
+            ),
             // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -136,6 +176,10 @@ return array(
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'application/adverts/adverts' => __DIR__ . '/../view/application/adverts/adverts.phtml',
 				'application/info/about' => __DIR__ . '/../view/application/info/about.phtml',
+				'application/info/state1' => __DIR__ . '/../view/application/info/state1.phtml',
+				'application/info/state2' => __DIR__ . '/../view/application/info/state2.phtml',
+				'application/info/state3' => __DIR__ . '/../view/application/info/state3.phtml',
+				'application/info/state4' => __DIR__ . '/../view/application/info/state4.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),

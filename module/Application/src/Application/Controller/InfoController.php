@@ -24,4 +24,44 @@ class InfoController extends AbstractActionController
 				}
 			return new ViewModel(array('user' => $display_name));
     }
+	public function state1Action()
+		{
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			return new ViewModel(array('user' => $display_name));
+		}
+	public function state2Action()
+		{
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			return new ViewModel(array('user' => $display_name));
+		}
+	public function state3Action()
+		{
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			return new ViewModel(array('user' => $display_name));
+		}
+	public function state4Action()
+		{
+			if ($this->zfcUserAuthentication()->hasIdentity()) 
+				{
+					//echo 'loged in';
+					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
+					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
+				}
+			return new ViewModel(array('user' => $display_name));
+		}
 }
