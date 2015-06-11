@@ -86,12 +86,23 @@ class PostForm extends Form
             ), 
         )); 
 			$this->add(array(
-            'name' => 'coordinates',
+            'name' => 'latitude',
             'attributes' => array(
                 'type'  => 'text',
+					 'id' => 'latitude',
             ),
             'options' => array(
-                'label' => 'Координати',
+                'label' => 'Широта',
+            ),
+        ));
+			$this->add(array(
+            'name' => 'longitude',
+            'attributes' => array(
+                'type'  => 'text',
+					 'id' => 'longitude',
+            ),
+            'options' => array(
+                'label' => 'Довгота',
             ),
         ));
         $this->add(array(

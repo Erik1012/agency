@@ -61,7 +61,7 @@ $( document ).ready(function() {
 });
 	function initialize() {
 		var myLatlng = new google.maps.LatLng(48.6179734,22.2783973);
-		var coord = new google.maps.LatLng(<?=$advert->coordinates;?>);
+		var coord = new google.maps.LatLng(<?=$advert->latitude.','.$advert->longitude;?>);
 		var mapOptions = {
 		  zoom: 12,
 		  center: myLatlng

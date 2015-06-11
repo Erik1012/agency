@@ -1,4 +1,4 @@
-<h1><?php echo $this->translate('Sign In'); ?></h1>
+<h1><?php echo $this->translate('Авторизація'); ?></h1>
 
 <?php
 $form = $this->loginForm;
@@ -28,5 +28,5 @@ $form->setAttribute('method', 'post');
 <?php echo $this->form()->closeTag() ?>
 
 <?php if ($this->enableRegistration) : ?>
-<?php echo $this->translate('Not registered?'); ?> <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->escapeUrl($this->redirect) : '') ?>"><?php echo $this->translate('Sign up!'); ?></a>
+ <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->escapeUrl($this->redirect) : '') ?>"><?php echo $this->translate('Реєстрація'); ?></a>
 <?php endif; ?>

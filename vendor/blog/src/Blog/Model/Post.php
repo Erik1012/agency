@@ -17,7 +17,8 @@ class Post implements InputFilterAwareInterface
 	 public $date;
 	 public $pictures;
 	 public $category_id;
-	 public $coordinates;
+	 public $latitude;
+	 public $longitude;
 	 public $user_id;
 
     public function exchangeArray($data)
@@ -30,7 +31,8 @@ class Post implements InputFilterAwareInterface
 		  $this->date = (isset($data['date'])) ? $data['date'] : null;
 		  $this->pictures = (isset($data['pictures'])) ? $data['pictures'] : null;
 		  $this->category_id = (!empty($data['category_id'])) ? $data['category_id'] : null;
-		  $this->coordinates = (isset($data['coordinates'])) ? $data['coordinates'] : null;
+		  $this->latitude = (isset($data['latitude'])) ? $data['latitude'] : null;
+		  $this->longitude = (isset($data['longitude'])) ? $data['longitude'] : null;
 		  $this->user_id = (isset($data['user_id'])) ? $data['user_id'] : null;
     }
 
@@ -162,8 +164,8 @@ class Post implements InputFilterAwareInterface
 			  ]));
 				
 				$inputFilter->add($factory->createInput(array(
-                'name'     => 'coordinates',
-                'required' => true,
+                'name'     => 'latitude',
+                'required' => false,
                 'filters'  => array(
                     array('name' => 'StripTags'),
                     array('name' => 'StringTrim'),
@@ -174,7 +176,25 @@ class Post implements InputFilterAwareInterface
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min'      => 1,
-                            'max'      => 100,
+                            'max'      => 500,
+                        ),
+                    ),
+                ),
+            )));
+				$inputFilter->add($factory->createInput(array(
+                'name'     => 'longitude',
+                'required' => false,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 500,
                         ),
                     ),
                 ),

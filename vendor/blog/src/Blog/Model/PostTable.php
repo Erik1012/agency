@@ -51,7 +51,8 @@ class PostTable extends AbstractTableGateway
 				'date'  => date("Y-m-d"),
 				'pictures'  => $post->pictures,
 				'category_id'  => $post->category_id,
-				'coordinates'  => $post->coordinates,
+				'latitude'  => $post->latitude,
+				'longitude'  => $post->longitude,
 				'user_id'  => $post->user_id,
         );
         $id = (int)$post->id;
