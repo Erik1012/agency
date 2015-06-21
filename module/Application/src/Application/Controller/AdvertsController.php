@@ -25,9 +25,23 @@ class AdvertsController extends AbstractActionController
 					$display_name = $this->zfcUserAuthentication()->getIdentity()->getDisplayname();
 					//echo $this->zfcUserAuthentication()->getIdentity()->getUsername();
 				}
+			$message = "";
+			if(isset($_POST['search_sub']))
+				{
+					$adverts = $this->get_adverts_table()->search_by_key($_POST['search_key']);
+					$message = "Результат пошуку \"".$_POST['search_key']."\"";
+				}
+			else
+				{
+					$adverts = $this->get_adverts_table()->get_all();
+				}
+			//echo '<pre>';
+			//$test = $this->get_adverts_table()->search_by_key("adv");
+			//var_dump($test);
+			//echo '</pre>';
 			$category_id = $this->getEvent()->getRouteMatch()->getParam("category_id");
 			$categories = $this->get_category_table()->get_all();
-			return new ViewModel(array('adverts' => $this->get_adverts_table()->get_all(), 'user' => $display_name, "categories" => $categories));
+			return new ViewModel(array('adverts' => $adverts, 'user' => $display_name, "categories" => $categories, "message" => $message));
       }
    public function AdvertAction()
       {

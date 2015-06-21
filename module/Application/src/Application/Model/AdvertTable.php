@@ -8,6 +8,10 @@
 namespace Application\Model;
 
  use Zend\Db\TableGateway\TableGateway;
+    use Zend\Db\Sql\Where;
+    use Zend\Db\Sql\Sql,
+        Zend\Db\Adapter\Adapter;
+    use Zend\Db\Sql\Expression;
 
  class AdvertTable
  {
@@ -62,5 +66,20 @@ namespace Application\Model;
      {
          $this->tableGateway->delete(array('id' => (int) $id));
      }
- }
+	public function search_by_key($strSearch)
+		{
+                $adapter = $this->tableGateway->getAdapter();
+                $sql     = new Sql($adapter);
+
+                $select = $sql->select();
+                $select->from('adverts')
+                       ->columns(array('*'))
+                       ->where->like('title', '%'.$strSearch.'%');
+
+                $statement = $sql->getSqlStringForSqlObject($select);
+                $results   = $adapter->query($statement, $adapter::QUERY_MODE_EXECUTE);
+
+                return $results;
+		}
+}
 ?>

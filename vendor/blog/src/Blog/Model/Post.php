@@ -75,7 +75,7 @@ class Post implements InputFilterAwareInterface
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min'      => 1,
-                            'max'      => 100,
+                            'max'      => 1000,
                         ),
                     ),
                 ),
@@ -94,7 +94,7 @@ class Post implements InputFilterAwareInterface
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min'      => 1,
-                            'max'      => 100,
+                            'max'      => 1000,
                         ),
                     ),
                 ),
@@ -122,7 +122,7 @@ class Post implements InputFilterAwareInterface
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min'      => 1,
-                            'max'      => 100,
+                            'max'      => 1000,
                         ),
                     ),
                 ),
@@ -140,7 +140,7 @@ class Post implements InputFilterAwareInterface
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min'      => 1,
-                            'max'      => 100,
+                            'max'      => 100000,
                         ),
                     ),
                 ),
@@ -155,7 +155,7 @@ class Post implements InputFilterAwareInterface
 						 array ( 
 							  'name' => 'InArray', 
 							  'options' => array( 
-										 'haystack' => array(0,1) ,
+										 'haystack' => array(0,1,2,3,4,5,6,7) ,
 									), 
 							  ), 
 						 ), 

@@ -18,8 +18,17 @@
                 <div class="row">
                     <div class="col-sm-12 wow fadeIn">
                         <!--<i class="fa fa-camera"></i>-->
-                        <h1>Advertisements /</h1>
-                        <p>The largest catalog of realty</p>
+                        
+								<?php
+									if(empty($message))
+										{
+											echo '<h1>Каталог</h1><p></p>';
+										}
+									else
+										{
+											echo '<h1>'.$message.'</h1>';
+										}
+								?>
                     </div>
                 </div>
             </div>
@@ -49,11 +58,11 @@
 							?>
 		                <div class="portfolio-box <?=$advert->category_id;?>">
 		                	<div class="portfolio-box-container">
-			                	<img src="<?= $images[0]; ?>" alt="" data-at2x="<?= $images[0]; ?>">
+			                	<img class="advert_image" src="<?= $images[0]; ?>" alt="" data-at2x="<?= $images[0]; ?>">
                                                 <a href="/adverts/advert/<?= $this->escapeHtml($advert->id);?>">
-                                                    <div class="portfolio-box-text">
+                                                    <div class="portfolio-box-text advert_text_box">
 			                		<h3><?= $this->escapeHtml($advert->title);?></h3>
-			                		<p><?= $this->escapeHtml($advert->description);?></p>
+			                		<p class="advert_description"><?= $this->escapeHtml($advert->address);?></p>
                                                     </div>
                                                 </a>
 			                </div>

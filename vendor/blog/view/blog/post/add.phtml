@@ -17,24 +17,24 @@ $this->headTitle($title);
 	echo '<table class="table">';
 
 	echo '<tr><td>'.$this->formLabel($form->get('title')).'</td>';
-	echo '<td>'.$this->formElement($form->get('title')).'</td></tr>';
+	echo '<td>'.$this->formElement($form->get('title')).$this->formElementErrors($form->get('title')).'</td></tr>';
 
 	echo '<tr><td>'.$this->formLabel($form->get('address')).'</td>';
-	echo '<td>'.$this->formElement($form->get('address')).'</td></tr>';
+	echo '<td>'.$this->formElement($form->get('address')).$this->formElementErrors($form->get('address')).'</td></tr>';
 
 	echo '<tr><td>'.$this->formLabel($form->get('description')).'</td>';
-	echo '<td>'.$this->formElement($form->get('description')).'</td></tr>';
+	echo '<td>'.$this->formElement($form->get('description')).$this->formElementErrors($form->get('description')).'</td></tr>';
 
 	echo '<tr><td>'.$this->formLabel($form->get('phone')).'</td>';
-	echo '<td>'.$this->formElement($form->get('phone')).'</td></tr>';
+	echo '<td>'.$this->formElement($form->get('phone')).$this->formElementErrors($form->get('phone')).'</td></tr>';
 
 	echo '<tr><td>'.$this->formLabel($form->get('pictures')).'</td>';
-	echo '<td>'.$this->formElement($form->get('pictures')).'</td></tr>';
+	echo '<td>'.$this->formElement($form->get('pictures')).$this->formElementErrors($form->get('pictures')).'</td></tr>';
 
 	echo '<tr><td>'.$this->formLabel($form->get('category_id')).'</td>';
-	echo '<td>'.$this->formElement($form->get('category_id')).'</td></tr>';
+	echo '<td>'.$this->formElement($form->get('category_id')).$this->formElementErrors($form->get('category_id')).'</td></tr>';
 	
-	echo '<tr><td>'.$this->formLabel($form->get('latitude')).$this->formRow($form->get('latitude')).'<br/>'.$this->formLabel($form->get('longitude')).$this->formRow($form->get('longitude')).'</td>';
+	echo '<tr><td>'.$this->formLabel($form->get('latitude')).$this->formElement($form->get('latitude')).'<br/>'.$this->formLabel($form->get('longitude')).$this->formElement($form->get('longitude')).'</td>';
 	echo '<td><div id="map-canvas" style="height:300px; width:400px;"></div></td></tr>';
 	
 	

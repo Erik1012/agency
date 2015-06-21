@@ -31,7 +31,7 @@ class IndexController extends AbstractActionController
 				{
 					$adverts[$i]['id'] = $item->id;
 					$adverts[$i]['title'] = $item->title;
-					$adverts[$i]['description'] = $item->description;
+					$adverts[$i]['address'] = $item->address;
 					$adverts[$i]['pictures'] = $item->pictures;
 					$i++;
 				}

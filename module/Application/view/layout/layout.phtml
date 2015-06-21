@@ -57,7 +57,12 @@
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
 								<div class="collapse navbar-collapse">
-									
+									<form method="POST" action="/adverts">
+										<div id="search">
+											<input type="text" id="search_key" name="search_key"/>
+											<input type="submit" name="search_sub" value="Пошук" />
+										</div>
+									</form>
 							  </div>
                         <div class="collapse navbar-collapse" id="top-navbar-1">
 								<?php // <-- Update this !!
@@ -76,32 +81,16 @@
         <footer>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3 footer-box wow fadeInUp">
-                        <h4>About Us</h4>
+                    <div class="col-sm-3 footer-box wow fadeInUp new_width">
+                        <h4>Хто ми такі?</h4>
                         <div class="footer-box-text">
 	                        <p>
-	                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et. 
-	                        	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.
+	                        	Компанія, послугами якої користуються клієнти з 2015 року, яка змінює ринок нерухомості для своїх клієнтів у кращу сторону, компанія, яку визнають як єдиного лідера ринку нерухомості Ужгорода.
 	                        </p>
-	                        <p><a href="about.html">Read more...</a></p>
+	                        
                         </div>
                     </div>
-                    <div class="col-sm-3 footer-box wow fadeInDown">
-                        <h4>Email Updates</h4>
-                        <div class="footer-box-text footer-box-text-subscribe">
-                        	<p>Enter your email and you'll be one of the first to get new updates:</p>
-                        	<form role="form" action="/subscribe.php" method="post">
-		                    	<div class="form-group">
-		                    		<label class="sr-only" for="subscribe-email">Email address</label>
-		                        	<input type="text" name="email" placeholder="Email..." class="subscribe-email" id="subscribe-email">
-		                        </div>
-		                        <button type="submit" class="btn">Subscribe</button>
-		                    </form>
-		                    <p class="success-message"></p>
-		                    <p class="error-message"></p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 footer-box wow fadeInUp">
+                    <div class="col-sm-3 footer-box wow fadeInDown new_width">
                         <h4>Дивіться також</h4>
                         <div class="footer-box-text ">
 									<a href="http://sfs.gov.ua/nove-pro-podatki--novini-/109647.html" >Порядок оподаткування доходів від продажу нерухомості</a><br/>
@@ -110,13 +99,13 @@
 									<a href="http://san.in.ua/korisn%D1%96-poradi-pri-kup%D1%96vl%D1%96-nerukhomost%D1%96">Корисні поради при купівлі нерухомості</a><br/>
 								</div>
                     </div>
-                    <div class="col-sm-3 footer-box wow fadeInDown">
-                        <h4>Contact Us</h4>
+                    <div class="col-sm-3 footer-box wow fadeInUp new_width">
+                        <h4>Контакти</h4>
                         <div class="footer-box-text footer-box-text-contact">
-	                        <p><i class="fa fa-map-marker"></i> Address: Via Principe Amedeo 9, 10100, Torino, TO, Italy</p>
-	                        <p><i class="fa fa-phone"></i> Phone: 0039 333 12 68 347</p>
-	                        <p><i class="fa fa-user"></i> Skype: Andia_Agency</p>
-	                        <p><i class="fa fa-envelope"></i> Email: <a href="">contact@andia.co.uk</a></p>
+	                        <p><i class="fa fa-map-marker"></i> Адреса: Закарпатська область, м. Ужгород</p>
+	                        <p><i class="fa fa-phone"></i> Тел.: (093) 531-62-77</p>
+	                        <p><i class="fa fa-user"></i> Skype: Agency</p>
+	                        <p><i class="fa fa-envelope"></i> Email: <a href="">contact@agency.com.ua</a></p>
                         </div>
                     </div>
                 </div>

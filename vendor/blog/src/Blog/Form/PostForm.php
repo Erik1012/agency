@@ -62,15 +62,16 @@ class PostForm extends Form
                 'label' => 'Тел.',
             ),
         ));
-		   $this->add(array(
-            'name' => 'pictures',
-            'attributes' => array(
-                'type'  => 'text',
-            ),
-            'options' => array(
-                'label' => 'Картинки',
-            ),
-        ));
+		   $this->add(array( 
+            'name' => 'pictures', 
+            'type' => 'file', 
+            'attributes' => array( 
+                'required' => 'required', 
+            ), 
+            'options' => array( 
+                'label' => 'Картинки', 
+            ), 
+        )); 
 			$this->add(array( 
             'name' => 'category_id', 
             'type' => 'Zend\Form\Element\Select', 

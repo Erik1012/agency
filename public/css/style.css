@@ -28,7 +28,10 @@ a:hover, a:focus { color: #888; text-decoration: none; }
 
 strong { font-weight: bold; }
 
-img { max-width: 100%; }
+img { 
+	max-width: 100%; 
+	
+}
 
 h1, h2 { line-height: 40px; }
 h3, h4 { line-height: 20px; }
@@ -875,7 +878,7 @@ footer {
 }
 
 .portfolio-box-text {
-	padding: 0 15px 20px 15px;
+    padding: 0 15px 20px;
 }
 
 .portfolio-box-text h3 {
@@ -938,6 +941,33 @@ th
 		position: relative;
 		top: 1em;
 	}
+.new_width
+	{
+		width: 33% !important;
+	}
+#search
+	{
+		float: right;
+		position: relative;
+		right: 16em;
+		top: 1.5em;
+	}
+.advert_description
+	{
+		/*height: 40px;
+		overflow: hidden;
+		text-overflow: ellipsis;*/
+	}
+.advert_image
+	{
+		height: 13em;
+	}
+.advert_text_box
+	{
+		height: 10em;
+		overflow: -moz-hidden-unscrollable;
+		text-overflow: inherit;
+	}
 @media screen and (max-width: 700px) {
 	.username
 		{
@@ -956,5 +986,16 @@ th
 		top: 1em;
 		left: 1em;
 	}
+	.new_width
+		{
+			width: 100% !important;
+		}
+	#search
+		{
+			float: none;
+			position: relative;
+			right: 0em;
+			top: 0em;
+		}
 }	
 	
